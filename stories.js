@@ -21,5 +21,4 @@ const STORIES = [
   { type: 'image', src: 'Screens motion/Screen21.png', poster: '#FCFAF7' },
   { type: 'image', src: 'Screens motion/Screen22.png', poster: '#FCFAF7' },
   { type: 'video', src: 'Screens motion/Screen23.mp4', poster: '#FCFAF7' },
-  { type: 'end',   src: 'Screens motion/End.png' },
 ];

@@ -276,6 +276,9 @@
       <div class="tap-zone" id="tap-left"></div>
       <div class="tap-zone" id="tap-right"></div>
       <div class="home-indicator"></div>
+      <div id="end-screen" style="position:absolute;inset:0;z-index:55;display:none;">
+        <img src="Screens motion/End.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
     </div>
 
     <!-- Phone frame overlay — transparent center, sits above everything -->
@@ -377,15 +380,15 @@ STORIES.forEach((story, i) => {
     vid.muted = true;
     vid.preload = 'none';
     vid.addEventListener('ended', () => {
-      if (STORIES[i + 1]?.type === 'end') {
-        goTo(i + 1, 1);
+      if (i === TOTAL - 1) {
+        showEndScreen();
       } else {
         vid.currentTime = Math.max(0, vid.duration - 0.05);
         vid.pause();
       }
     });
     slide.appendChild(vid);
-  } else if (story.type === 'image' || story.type === 'end') {
+  } else if (story.type === 'image') {
     slide.style.background = story.poster || '#FCFAF7';
     const img = document.createElement('img');
     img.src = story.src;
@@ -701,7 +704,6 @@ function initPositions() {
 function goTo(nextIdx, direction) {
   if (nextIdx < 0 || nextIdx >= TOTAL) return;
   if (isAnimating || nextIdx === currentIdx) return;
-  if (STORIES[currentIdx]?.type === 'end') return;
   isAnimating = true;
 
   const fromEl  = getSlide(currentIdx);
@@ -733,11 +735,6 @@ function goTo(nextIdx, direction) {
         _skip.style.opacity = '1';
       }, 5000);
     }
-  }
-  if (STORIES[currentIdx]?.type === 'end') {
-    pb.style.display = 'none';
-    document.getElementById('tap-left').style.display = 'none';
-    document.getElementById('tap-right').style.display = 'none';
   }
   if (currentIdx === STAMPS_IDX) {
     if (direction > 0) {
@@ -794,6 +791,10 @@ document.addEventListener('keydown', e => {
 
 const entryScreen = document.getElementById('entry-screen');
 
+function showEndScreen() {
+  document.getElementById('end-screen').style.display = '';
+}
+
 function showEntry() {
   for (let i = 0; i < TOTAL; i++) {
     const vid = getSlide(i)?.querySelector('video');
@@ -804,9 +805,7 @@ function showEntry() {
   resetStamps(-1);
   isAnimating = false;
   currentIdx  = 0;
-  pb.style.display = '';
-  document.getElementById('tap-left').style.display = '';
-  document.getElementById('tap-right').style.display = '';
+  document.getElementById('end-screen').style.display = 'none';
   initPositions();
   updateProgress(0);
   entryScreen.style.display = '';
