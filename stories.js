@@ -18,7 +18,7 @@ const STORIES = [
   { type: 'video', src: 'Screens motion/Screen18.mp4', poster: '#FCFAF7' },
   { type: 'video', src: 'Screens motion/Screen19.mp4', poster: '#FCFAF7' },
   { type: 'video', src: 'Screens motion/Screen20.mp4', poster: '#FCFAF7' },
-  { type: 'image', src: 'Screens motion/Screen21.png', poster: '#FCFAF7' },
-  { type: 'image', src: 'Screens motion/Screen22.png', poster: '#FCFAF7' },
+  { type: 'video', src: 'Screens motion/Screen21.mp4', poster: '#FCFAF7' },
+  { type: 'video', src: 'Screens motion/Screen22.mp4', poster: '#FCFAF7' },
   { type: 'video', src: 'Screens motion/Screen23.mp4', poster: '#FCFAF7' },
 ];

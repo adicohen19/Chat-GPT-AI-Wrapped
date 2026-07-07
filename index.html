@@ -37,6 +37,7 @@
       width: 436px;
       height: 889px;
       flex-shrink: 0;
+      transform: scale(0.92);
     }
 
     /* Story player — behind the frame overlay */
@@ -77,7 +78,7 @@
       pointer-events: none;
     }
 
-    #entry-screen img {
+    #entry-screen video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -244,7 +245,7 @@
     <!-- Story player -->
     <div class="phone-screen">
       <div id="entry-screen">
-        <img src="Screens motion/Entry.png" alt="Entry">
+        <video id="entry-video" src="Screens motion/EntryScreen.mp4" autoplay muted playsinline></video>
       </div>
 
       <div id="story-container"></div>
@@ -252,7 +253,7 @@
       <div class="status-bar">
         <svg viewBox="0 0 393 54" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Time -->
-          <path d="M50.2427 35.3398V25.4702H50.0933L47.1133 27.5703V25.5615L50.2427 23.3618H52.376V35.3398H50.2427ZM60.0957 35.6387C59.1439 35.6387 58.3276 35.3841 57.647 34.875C56.9718 34.3659 56.4517 33.641 56.0864 32.7002C55.7212 31.7594 55.5386 30.6444 55.5386 29.355V29.3384C55.5386 28.049 55.7212 26.9367 56.0864 26.0015C56.4517 25.0607 56.9718 24.3358 57.647 23.8267C58.3276 23.3175 59.1439 23.063 60.0957 23.063C61.0475 23.063 61.8638 23.3175 62.5444 23.8267C63.2251 24.3358 63.748 25.0607 64.1133 26.0015C64.4785 26.9367 64.6611 28.049 64.6611 29.3384V29.355C64.6611 30.6444 64.4785 31.7594 64.1133 32.7002C63.748 33.641 63.2251 34.3659 62.5444 34.875C61.8638 35.3841 61.0475 35.6387 60.0957 35.6387ZM60.0957 33.9038C60.6048 33.9038 61.0392 33.7212 61.3989 33.356C61.7586 32.9907 62.0326 32.4705 62.2207 31.7954C62.4144 31.1147 62.5112 30.3013 62.5112 29.355V29.3384C62.5112 28.3921 62.4144 27.5814 62.2207 26.9062C62.0326 26.2256 61.7586 25.7054 61.3989 25.3457C61.0392 24.9805 60.6048 24.7979 60.0957 24.7979C59.5866 24.7979 59.1522 24.9805 58.7925 25.3457C58.4383 25.7054 58.1644 26.2256 57.9707 26.9062C57.7826 27.5814 57.6885 28.3921 57.6885 29.3384V29.355C57.6885 30.3013 57.7826 31.1147 57.9707 31.7954C58.1644 32.4705 58.4383 32.9907 58.7925 33.356C59.1522 33.7212 59.5866 33.9038 60.0957 33.9038ZM68.4712 33.7295C68.0949 33.7295 67.7795 33.605 67.5249 33.356C67.2759 33.1014 67.1514 32.7915 67.1514 32.4263C67.1514 32.0555 67.2759 31.7456 67.5249 31.4966C67.7795 31.242 68.0949 31.1147 68.4712 31.1147C68.853 31.1147 69.1685 31.242 69.4175 31.4966C69.6665 31.7456 69.791 32.0555 69.791 32.4263C69.791 32.7915 69.6665 33.1014 69.4175 33.356C69.1685 33.605 68.853 33.7295 68.4712 33.7295ZM68.4712 27.5703C68.0949 27.5703 67.7795 27.4458 67.5249 27.1968C67.2759 26.9422 67.1514 26.6323 67.1514 26.2671C67.1514 25.8963 67.2759 25.5864 67.5249 25.3374C67.7795 25.0828 68.0949 24.9556 68.4712 24.9556C68.853 24.9556 69.1685 25.0828 69.4175 25.3374C69.6665 25.5864 69.791 25.8963 69.791 26.2671C69.791 26.6323 69.6665 26.9422 69.4175 27.1968C69.1685 27.4458 68.853 27.5703 68.4712 27.5703ZM76.8301 35.6387C75.8783 35.6387 75.062 35.3841 74.3813 34.875C73.7062 34.3659 73.186 33.641 72.8208 32.7002C72.4556 31.7594 72.2729 30.6444 72.2729 29.355V29.3384C72.2729 28.049 72.4556 26.9367 72.8208 26.0015C73.186 25.0607 73.7062 24.3358 74.3813 23.8267C75.062 23.3175 75.8783 23.063 76.8301 23.063C77.7819 23.063 78.5981 23.3175 79.2788 23.8267C79.9595 24.3358 80.4824 25.0607 80.8477 26.0015C81.2129 26.9367 81.3955 28.049 81.3955 29.3384V29.355C81.3955 30.6444 81.2129 31.7594 80.8477 32.7002C80.4824 33.641 79.9595 34.3659 79.2788 34.875C78.5981 35.3841 77.7819 35.6387 76.8301 35.6387ZM76.8301 33.9038C77.3392 33.9038 77.7736 33.7212 78.1333 33.356C78.493 32.9907 78.7669 32.4705 78.9551 31.7954C79.1488 31.1147 79.2456 30.3013 79.2456 29.355V29.3384C79.2456 28.3921 79.1488 27.5814 78.9551 26.9062C78.7669 26.2256 78.493 25.7054 78.1333 25.3457C77.7736 24.9805 77.3392 24.7979 76.8301 24.7979C76.321 24.7979 75.8866 24.9805 75.5269 25.3457C75.1727 25.7054 74.8988 26.2256 74.7051 26.9062C74.5169 27.5814 74.4229 28.3921 74.4229 29.3384V29.355C74.4229 30.3013 74.5169 31.1147 74.7051 31.7954C74.8988 32.4705 75.1727 32.9907 75.5269 33.356C75.8866 33.7212 76.321 33.9038 76.8301 33.9038ZM88.1357 35.6387C87.1839 35.6387 86.3677 35.3841 85.687 34.875C85.0119 34.3659 84.4917 33.641 84.1265 32.7002C83.7612 31.7594 83.5786 30.6444 83.5786 29.355V29.3384C83.5786 28.049 83.7612 26.9367 84.1265 26.0015C84.4917 25.0607 85.0119 24.3358 85.687 23.8267C86.3677 23.3175 87.1839 23.063 88.1357 23.063C89.0876 23.063 89.9038 23.3175 90.5845 23.8267C91.2651 24.3358 91.7881 25.0607 92.1533 26.0015C92.5186 26.9367 92.7012 28.049 92.7012 29.3384V29.355C92.7012 30.6444 92.5186 31.7594 92.1533 32.7002C91.7881 33.641 91.2651 34.3659 90.5845 34.875C89.9038 35.3841 89.0876 35.6387 88.1357 35.6387ZM88.1357 33.9038C88.6449 33.9038 89.0793 33.7212 89.439 33.356C89.7987 32.9907 90.0726 32.4705 90.2607 31.7954C90.4544 31.1147 90.5513 30.3013 90.5513 29.355V29.3384C90.5513 28.3921 90.4544 27.5814 90.2607 26.9062C90.0726 26.2256 89.7987 25.7054 89.439 25.3457C89.0793 24.9805 88.6449 24.7979 88.1357 24.7979C87.6266 24.7979 87.1922 24.9805 86.8325 25.3457C86.4784 25.7054 86.2044 26.2256 86.0107 26.9062C85.8226 27.5814 85.7285 28.3921 85.7285 29.3384V29.355C85.7285 30.3013 85.8226 31.1147 86.0107 31.7954C86.2044 32.4705 86.4784 32.9907 86.8325 33.356C87.1922 33.7212 87.6266 33.9038 88.1357 33.9038Z" fill="#232323"/>
+          <text x="47" y="35.4" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display',Helvetica,Arial,sans-serif" font-size="15" font-weight="600" letter-spacing="0.3" fill="#232323">18:26</text>
           <!-- Battery -->
           <rect opacity="0.35" x="334" y="23.5" width="24" height="12" rx="3.8" stroke="#232323"/>
           <path opacity="0.4" d="M359.5 27.7812V31.8567C360.305 31.5116 360.828 30.7086 360.828 29.819C360.828 28.9294 360.305 28.1264 359.5 27.7812Z" fill="#232323"/>
@@ -406,13 +407,16 @@ STORIES.forEach((story, i) => {
   const sl = document.getElementById('slide-' + s18i);
 
   const c = document.createElement('div');
-  c.style.cssText = 'position:absolute;left:50%;top:calc(50% + 56px);width:490px;height:615px;transform:translate(-50%,-50%) scale(0.802);transform-origin:center center;pointer-events:none;z-index:2;';
+  c.style.cssText = 'position:absolute;left:50%;top:calc(50% + 56px);width:490px;height:615px;transform:translate(-50%,-50%) scale(0.802);transform-origin:center center;pointer-events:none;z-index:2;isolation:isolate;';
 
   const POS = {
     STACK:  {t:528, l:420, w:70,  h:87,  op:0, z:0, rx: 7},
-    RIGHT:  {t:410, l:326, w:110, h:136, op:1, z:1, rx:10},
+    RIGHT:  {t:410, l:326, w:110, h:136, op:1, z:1, rx:14},
     CENTER: {t:167, l:131, w:225, h:279, op:1, z:3, rx:20},
-    LEFT:   {t:71,  l:56,  w:110, h:136, op:1, z:2, rx:10},
+    LEFT:   {t:71,  l:56,  w:110, h:136, op:1, z:2, rx:14},
+    // mirrors the STACK→RIGHT (incoming) delta so the outgoing motion
+    // matches it in distance/scale — same visual language, opposite direction
+    EXIT:   {t:-47, l:-38, w:70,  h:87,  op:0, z:2, rx:14},
   };
   const TR = 'top 0.9s cubic-bezier(0.4,0,0.2,1),left 0.9s cubic-bezier(0.4,0,0.2,1),width 0.9s cubic-bezier(0.4,0,0.2,1),height 0.9s cubic-bezier(0.4,0,0.2,1),opacity 0.5s ease,border-radius 0.9s ease';
 
@@ -450,7 +454,7 @@ STORIES.forEach((story, i) => {
 
   const cards18 = SVG_INNER.map((inner) => {
     const d = document.createElement('div');
-    d.style.cssText = 'position:absolute;overflow:hidden;';
+    d.style.cssText = 'position:absolute;overflow:hidden;mix-blend-mode:multiply;';
     const s = document.createElementNS('http://www.w3.org/2000/svg','svg');
     s.setAttribute('viewBox','131 167 225 279');
     s.setAttribute('preserveAspectRatio','xMidYMid meet');
@@ -474,23 +478,70 @@ STORIES.forEach((story, i) => {
     requestAnimationFrame(() => { cards18.forEach(d => { d.style.transition = TR; }); });
   });
 
+  let exitingCard = null;
+  let exitingHandler = null;
+
+  function cancelPendingExit() {
+    if (exitingCard && exitingHandler) {
+      exitingCard.removeEventListener('transitionend', exitingHandler);
+    }
+    exitingCard = null;
+    exitingHandler = null;
+  }
+
   function advance18() {
     step = (step + 1) % 8;
-    // card that just left LEFT (now diff=7) teleports directly to STACK
+    // card that just left LEFT (now diff=7) animates onward and out, then
+    // silently resets into STACK once it's fully invisible
     cards18.forEach((d, i) => {
       if ((i - step + 8) % 8 === 7) {
-        d.style.transition = 'none';
-        applyPos(d, 'STACK');
-        void d.offsetWidth;
         d.style.transition = TR;
+        applyPos(d, 'EXIT');
+        cancelPendingExit();
+        exitingCard = d;
+        exitingHandler = function onExitDone(e) {
+          if (e.propertyName !== 'top') return; // wait for the full move, not the shorter opacity leg
+          d.removeEventListener('transitionend', onExitDone);
+          exitingCard = null;
+          exitingHandler = null;
+          d.style.transition = 'none';
+          applyPos(d, 'STACK');
+          void d.offsetWidth;
+          d.style.transition = TR;
+        };
+        d.addEventListener('transitionend', exitingHandler);
       }
     });
     requestAnimationFrame(() => {
-      cards18.forEach((d, i) => { applyPos(d, getPhase18(i)); });
+      cards18.forEach((d, i) => {
+        if ((i - step + 8) % 8 === 7) return;
+        applyPos(d, getPhase18(i));
+      });
     });
   }
 
-  setInterval(advance18, 2000);
+  let advance18Timer = null;
+
+  function startStory18() {
+    if (advance18Timer) return;
+    advance18Timer = setInterval(advance18, 2000);
+  }
+
+  function stopStory18() {
+    clearInterval(advance18Timer);
+    advance18Timer = null;
+    cancelPendingExit();
+    // snap every card instantly to its canonical resting spot for the
+    // current step, so nothing is left mid-flight while off-screen
+    cards18.forEach((d, i) => {
+      d.style.transition = 'none';
+      applyPos(d, getPhase18(i));
+    });
+    void c.offsetWidth;
+    cards18.forEach(d => { d.style.transition = TR; });
+  }
+
+  window._story18 = { storyIdx: s18i, start: startStory18, stop: stopStory18 };
   sl.appendChild(c);
 })();
 
@@ -500,7 +551,7 @@ STORIES.forEach((story, i) => {
   if (s19i < 0) return;
   const slide19 = document.getElementById('slide-' + s19i);
 
-  const CW = 210, CH = 260;
+  const CW = 235, CH = 291;
   const wrap = document.createElement('div');
   wrap.style.cssText = `position:absolute;left:50%;top:calc(50% - 5px);transform:translate(-50%,-50%);width:${CW}px;height:${CH}px;z-index:2;`;
 
@@ -509,7 +560,10 @@ STORIES.forEach((story, i) => {
     const div = document.createElement('div');
     const depth = i - 1;
     const cd = Math.min(depth, 3);
-    div.style.cssText = `position:absolute;width:${CW}px;height:${CH}px;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.05);will-change:transform;cursor:grab;z-index:${10 - depth};visibility:${depth > 3 ? 'hidden' : 'visible'};transform:translateY(${cd * 16}px) scale(${1 - cd * 0.065});`;
+    const entranceStart = depth <= 3;
+    const restTransform = `translateY(${cd * 16}px) scale(${1 - cd * 0.065})`;
+    const startTransform = `translateY(${cd * 16 + 70}px) scale(${(1 - cd * 0.065) * 0.8})`;
+    div.style.cssText = `position:absolute;width:${CW}px;height:${CH}px;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.05);will-change:transform;cursor:grab;z-index:${10 - depth};visibility:${depth > 3 ? 'hidden' : 'visible'};opacity:${entranceStart ? '0' : '1'};transform:${entranceStart ? startTransform : restTransform};`;
     const img = document.createElement('img');
     img.src = `cards-swipe/${i}.svg`;
     img.style.cssText = 'width:100%;height:100%;display:block;pointer-events:none;user-select:none;';
@@ -525,17 +579,122 @@ STORIES.forEach((story, i) => {
   skipBtn.id = 'skip-btn-19';
   skipBtn.dataset.storyIdx = s19i;
   skipBtn.textContent = 'Skip';
-  skipBtn.style.cssText = 'position:absolute;bottom:52px;left:50%;display:none;transform:translateX(-50%) translateY(80px);background:none;border:none;color:#000;font-size:14px;font-family:inherit;padding:8px 16px;cursor:pointer;z-index:6;opacity:0;';
+  skipBtn.style.cssText = 'position:absolute;bottom:52px;left:50%;display:none;transform:translateX(-50%) translateY(80px);background:transparent;color:#000;border:1.5px solid #D8D8D8;border-radius:9999px;font-size:14px;font-weight:500;font-family:inherit;padding:8px 32px;cursor:pointer;z-index:6;opacity:0;';
   skipBtn.addEventListener('click', () => {
     skipBtn.style.display = 'none';
     goTo(s19i + 1, 1);
   });
   document.querySelector('.phone-screen').appendChild(skipBtn);
 
+  /* ── Keep / Delete action buttons ─────────────────────────────────── */
+  const BTN_SIZE = 60;
+  const HALO_SIZE = 80;
+
+  const ICON_PATHS = {
+    check: '<path d="M5 12.5L9.5 17L19 7" stroke-linecap="round" stroke-linejoin="round"/>',
+    x:     '<path d="M6 6L18 18M18 6L6 18" stroke-linecap="round"/>',
+  };
+
+  function makeActionBtn(label, bg, iconColor, iconType) {
+    const holder = document.createElement('div');
+    holder.style.cssText = `position:relative;width:${BTN_SIZE}px;height:${BTN_SIZE}px;`;
+
+    const halo = document.createElement('div');
+    halo.style.cssText = `position:absolute;left:50%;top:50%;width:${HALO_SIZE}px;height:${HALO_SIZE}px;border-radius:50%;background:${bg};opacity:0;transform:translate(-50%,-50%) scale(0.75);pointer-events:none;z-index:0;`;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', label);
+    btn.style.cssText = `position:relative;width:${BTN_SIZE}px;height:${BTN_SIZE}px;border-radius:50%;border:none;background:${bg};display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1;opacity:1;transition:opacity 0.35s ease;`;
+    btn.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="${iconColor}" stroke-width="4.8">${ICON_PATHS[iconType]}</g></svg>`;
+
+    holder.appendChild(halo);
+    holder.appendChild(btn);
+    return { holder, halo, btn };
+  }
+
+  const deleteBtn = makeActionBtn('Delete', '#4F080C', '#FFAFD2', 'x');
+  const keepBtn   = makeActionBtn('Keep',   '#D3F49E', '#035841', 'check');
+  deleteBtn.haloMax = 0.18;
+  keepBtn.haloMax   = 0.34;
+
+  const actionRow = document.createElement('div');
+  actionRow.id = 'action-row-19';
+  actionRow.dataset.storyIdx = s19i;
+  actionRow.style.cssText = 'position:absolute;left:50%;top:calc(50% + 205px);transform:translateX(-50%) translateY(10px);opacity:0;display:none;align-items:center;gap:32px;z-index:7;';
+  actionRow.appendChild(deleteBtn.holder);
+  actionRow.appendChild(keepBtn.holder);
+  document.querySelector('.phone-screen').appendChild(actionRow);
+
+  const DRAG_HALO_RANGE = 140;
+
+  function setActionFeedback(x, instant) {
+    const t = Math.min(1, Math.abs(x) / DRAG_HALO_RANGE);
+    const active   = x > 0 ? keepBtn : deleteBtn;
+    const inactive = x > 0 ? deleteBtn : keepBtn;
+    const tr = instant ? 'none' : 'opacity 0.35s ease, transform 0.35s ease';
+
+    active.halo.style.transition = tr;
+    active.halo.style.opacity = x === 0 ? '0' : String(active.haloMax * t);
+    active.halo.style.transform = `translate(-50%,-50%) scale(${0.75 + t * 0.45})`;
+    active.btn.style.transition = instant ? 'none' : 'opacity 0.35s ease';
+    active.btn.style.opacity = '1';
+
+    inactive.halo.style.transition = tr;
+    inactive.halo.style.opacity = '0';
+    inactive.halo.style.transform = 'translate(-50%,-50%) scale(0.75)';
+    inactive.btn.style.transition = instant ? 'none' : 'opacity 0.35s ease';
+    inactive.btn.style.opacity = x === 0 ? '1' : String(1 - t * 0.55);
+  }
+
   let topIdx = 0;
   let dragging = false;
   let startX = 0, currentX = 0;
   let flyingOut = null;
+  let entranceDone = false;
+  let entrancePlayed = false;
+
+  const ENTRANCE_DELAY = 2000;
+  const ENTRANCE_STAGGER = 90;
+  const ENTRANCE_DUR = 280;
+
+  function playEntrance() {
+    const visibleCount = Math.min(4, cardEls.length - topIdx);
+    for (let d = 0; d < visibleCount; d++) {
+      const el = cardEls[topIdx + d];
+      const cd = Math.min(d, 3);
+      const restTransform = d === 0 ? 'translateY(0) scale(1)' : `translateY(${cd * 16}px) scale(${1 - cd * 0.065})`;
+      setTimeout(() => {
+        el.style.transition = `transform ${ENTRANCE_DUR}ms cubic-bezier(0.34,1.56,0.64,1), opacity ${ENTRANCE_DUR}ms ease`;
+        el.style.opacity = '1';
+        el.style.transform = restTransform;
+      }, d * ENTRANCE_STAGGER);
+    }
+    setTimeout(() => {
+      entranceDone = true;
+      actionRow.style.display = 'flex';
+      requestAnimationFrame(() => {
+        actionRow.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+        actionRow.style.transform = 'translateX(-50%) translateY(0)';
+        actionRow.style.opacity = '1';
+      });
+    }, (visibleCount - 1) * ENTRANCE_STAGGER + ENTRANCE_DUR);
+  }
+
+  function scheduleEntrance19() {
+    if (entrancePlayed) return;
+    clearTimeout(window._entrance19Timer);
+    window._entrance19Timer = setTimeout(() => {
+      entrancePlayed = true;
+      playEntrance();
+    }, ENTRANCE_DELAY);
+  }
+
+  function cancelEntrance19() {
+    clearTimeout(window._entrance19Timer);
+  }
+
+  window._story19Entrance = { storyIdx: s19i, schedule: scheduleEntrance19, cancel: cancelEntrance19, isDone: () => entranceDone };
 
   function updateStack() {
     cardEls.forEach((el, i) => {
@@ -556,10 +715,33 @@ STORIES.forEach((story, i) => {
     });
   }
 
-  updateStack();
+  function swipeOut(dir) {
+    const top = cardEls[topIdx];
+    top.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.6,1), opacity 0.4s ease';
+    top.style.transform = `translateX(${dir * 650}px) rotate(${dir * 22}deg)`;
+    top.style.opacity = '0';
+    flyingOut = top;
+    topIdx++;
+    updateStack();
+    top.addEventListener('transitionend', () => {
+      flyingOut = null;
+      top.style.display = 'none';
+      if (topIdx >= cardEls.length) setTimeout(() => goTo(currentIdx + 1, 1), 500);
+    }, { once: true });
+  }
+
+  function triggerSwipe(dir) {
+    if (!entranceDone || dragging || flyingOut || topIdx >= cardEls.length) return;
+    setActionFeedback(dir * DRAG_HALO_RANGE, false);
+    swipeOut(dir);
+    setTimeout(() => setActionFeedback(0, false), 400);
+  }
+
+  deleteBtn.btn.addEventListener('click', () => triggerSwipe(-1));
+  keepBtn.btn.addEventListener('click', () => triggerSwipe(1));
 
   function onStart(e) {
-    if (topIdx >= cardEls.length) return;
+    if (!entranceDone || topIdx >= cardEls.length) return;
     e.stopPropagation();
     e.preventDefault();
     dragging = true;
@@ -579,27 +761,18 @@ STORIES.forEach((story, i) => {
     currentX = pt.clientX - startX;
     const rot = currentX * 0.06;
     cardEls[topIdx].style.transform = `translateX(${currentX}px) rotate(${rot}deg)`;
+    setActionFeedback(currentX, true);
   }
 
   function onEnd(e) {
     if (!dragging) return;
     dragging = false;
     e.stopPropagation();
+    setActionFeedback(0, false);
     const top = cardEls[topIdx];
     top.style.cursor = 'grab';
     if (Math.abs(currentX) > 75) {
-      const dir = currentX > 0 ? 1 : -1;
-      top.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.6,1), opacity 0.4s ease';
-      top.style.transform = `translateX(${dir * 650}px) rotate(${dir * 22}deg)`;
-      top.style.opacity = '0';
-      flyingOut = top;
-      topIdx++;
-      updateStack();
-      top.addEventListener('transitionend', () => {
-        flyingOut = null;
-        top.style.display = 'none';
-        if (topIdx >= cardEls.length) setTimeout(() => goTo(currentIdx + 1, 1), 500);
-      }, { once: true });
+      swipeOut(currentX > 0 ? 1 : -1);
     } else {
       top.style.transition = 'transform 0.4s cubic-bezier(0.34,1.56,0.64,1)';
       top.style.transform = 'translateX(0) rotate(0deg)';
@@ -612,6 +785,59 @@ STORIES.forEach((story, i) => {
   wrap.addEventListener('mousedown', onStart);
   document.addEventListener('mousemove', function(e) { if (dragging) onMove(e); });
   document.addEventListener('mouseup', function(e) { if (dragging) onEnd(e); });
+})();
+
+/* ── Story 17 CTA buttons ─────────────────────────────────────────────── */
+(function() {
+  const s17i = STORIES.findIndex(s => s.src && s.src.includes('Screen17'));
+  if (s17i < 0) return;
+
+  const stack = document.createElement('div');
+  stack.id = 'cta-stack-17';
+  stack.dataset.storyIdx = s17i;
+  stack.style.cssText = 'position:absolute;left:50%;bottom:52px;display:none;flex-direction:column;align-items:center;gap:12px;z-index:7;transform:translateX(-50%);';
+
+  const primaryBtn = document.createElement('button');
+  primaryBtn.type = 'button';
+  primaryBtn.textContent = 'Create Folder';
+  primaryBtn.style.cssText = 'width:200px;background:#000;color:#fff;border:1.5px solid transparent;border-radius:9999px;font-size:14px;font-weight:500;font-family:inherit;padding:10px 24px;cursor:pointer;opacity:0;transform:translateY(24px);';
+
+  const secondaryBtn = document.createElement('button');
+  secondaryBtn.type = 'button';
+  secondaryBtn.textContent = 'Ignore the Problem';
+  secondaryBtn.style.cssText = 'width:200px;background:transparent;color:#000;border:1.5px solid #D8D8D8;border-radius:9999px;font-size:14px;font-weight:500;font-family:inherit;padding:10px 24px;cursor:pointer;opacity:0;transform:translateY(24px);';
+
+  stack.appendChild(primaryBtn);
+  stack.appendChild(secondaryBtn);
+  document.querySelector('.phone-screen').appendChild(stack);
+
+  const CTA_STAGGER = 150;
+
+  function showCta17() {
+    clearTimeout(window._cta17Timer);
+    stack.style.display = 'flex';
+    [primaryBtn, secondaryBtn].forEach(btn => {
+      btn.style.transition = 'none';
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(24px)';
+    });
+    window._cta17Timer = setTimeout(() => {
+      [primaryBtn, secondaryBtn].forEach((btn, i) => {
+        setTimeout(() => {
+          btn.style.transition = 'transform 0.45s cubic-bezier(0.34,1.56,0.64,1), opacity 0.45s ease';
+          btn.style.opacity = '1';
+          btn.style.transform = 'translateY(0)';
+        }, i * CTA_STAGGER);
+      });
+    }, 3000);
+  }
+
+  function hideCta17() {
+    clearTimeout(window._cta17Timer);
+    stack.style.display = 'none';
+  }
+
+  window._story17Cta = { storyIdx: s17i, show: showCta17, hide: hideCta17 };
 })();
 
 let currentIdx  = 0;
@@ -736,6 +962,42 @@ function goTo(nextIdx, direction) {
       }, 5000);
     }
   }
+  const _actionRow = document.getElementById('action-row-19');
+  if (_actionRow) {
+    const _isStory19 = window._story19Entrance && currentIdx === window._story19Entrance.storyIdx;
+    const _alreadyAssembled = window._story19Entrance && window._story19Entrance.isDone();
+    _actionRow.style.transition = 'none';
+    if (_isStory19 && _alreadyAssembled) {
+      _actionRow.style.display = 'flex';
+      _actionRow.style.opacity = '1';
+      _actionRow.style.transform = 'translateX(-50%) translateY(0)';
+    } else {
+      _actionRow.style.opacity = '0';
+      _actionRow.style.transform = 'translateX(-50%) translateY(10px)';
+      _actionRow.style.display = 'none';
+    }
+  }
+  if (window._story19Entrance) {
+    if (currentIdx === window._story19Entrance.storyIdx) {
+      window._story19Entrance.schedule();
+    } else {
+      window._story19Entrance.cancel();
+    }
+  }
+  if (window._story17Cta) {
+    if (currentIdx === window._story17Cta.storyIdx) {
+      window._story17Cta.show();
+    } else {
+      window._story17Cta.hide();
+    }
+  }
+  if (window._story18) {
+    if (currentIdx === window._story18.storyIdx) {
+      window._story18.start();
+    } else {
+      window._story18.stop();
+    }
+  }
   if (currentIdx === STAMPS_IDX) {
     if (direction > 0) {
       stampsStep = 0;
@@ -790,6 +1052,12 @@ document.addEventListener('keydown', e => {
 });
 
 const entryScreen = document.getElementById('entry-screen');
+const entryVideoEl = document.getElementById('entry-video');
+if (entryVideoEl) {
+  entryVideoEl.addEventListener('ended', () => {
+    entryVideoEl.pause();
+  });
+}
 
 function showEndScreen() {
   document.getElementById('end-screen').style.display = '';
@@ -809,6 +1077,8 @@ function showEntry() {
   initPositions();
   updateProgress(0);
   entryScreen.style.display = '';
+  const entryVideo = document.getElementById('entry-video');
+  if (entryVideo) { entryVideo.currentTime = 0; entryVideo.play().catch(() => {}); }
 }
 
 document.getElementById('close-btn').addEventListener('click', showEntry);
@@ -818,6 +1088,8 @@ entryScreen.addEventListener('click', () => {
   entryScreen.addEventListener('transitionend', () => {
     entryScreen.style.display = 'none';
     entryScreen.classList.remove('fade-out');
+    const entryVideo = document.getElementById('entry-video');
+    if (entryVideo) entryVideo.pause();
   }, { once: true });
   const firstVid = getSlide(0)?.querySelector('video');
   if (firstVid) { firstVid.currentTime = 0; firstVid.play().catch(() => {}); }
