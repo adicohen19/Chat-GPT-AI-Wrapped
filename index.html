@@ -316,8 +316,13 @@
         <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:158px 20px 24px;font-family:'Poppins',sans-serif;">
           <div id="final-lead" style="color:#4F080C;font-size:15px;font-weight:400;text-align:center;letter-spacing:0.02em;opacity:0;transform:translateY(8px);transition:none;">Your Roast Recap is Ready</div>
           <div id="final-title" style="margin-top:4px;color:#4F080C;font-size:23px;font-weight:700;text-align:center;opacity:0;transform:translateY(10px) scale(0.96);transition:none;">That felt personal, huh?</div>
-          <img id="final-card" src="Screens motion/Summary.png" alt="" style="margin-top:40px;width:90%;height:auto;opacity:0;transform:scale(0.85);transition:none;">
-          <div id="final-buttons" style="margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <div id="final-card-area" style="margin:64px -20px 0;width:calc(100% + 40px);opacity:0;transform:scale(0.85);transition:none;">
+            <div id="final-card-viewport" style="position:relative;width:100%;overflow:hidden;">
+              <div id="final-card-track" style="display:flex;will-change:transform;"></div>
+            </div>
+            <div id="final-card-dots" style="display:flex;justify-content:center;align-items:center;gap:6px;margin-top:12px;"></div>
+          </div>
+          <div id="final-buttons" style="margin-top:72px;display:flex;flex-direction:column;align-items:center;gap:12px;">
             <button id="final-share-btn" type="button" style="width:230px;white-space:nowrap;background:#000;color:#fff;border:1.5px solid transparent;border-radius:9999px;font-size:14px;font-weight:500;font-family:inherit;padding:10px 24px;cursor:pointer;opacity:0;transform:translateY(10px) scale(0.96);transition:none;">Share Your Roast</button>
             <button id="final-keep-btn" type="button" style="width:230px;white-space:nowrap;background:transparent;color:#000;border:1.5px solid #D8D8D8;border-radius:9999px;font-size:14px;font-weight:500;font-family:inherit;padding:10px 24px;cursor:pointer;opacity:0;transform:translateY(10px) scale(0.96);transition:none;">Keep This Between Us</button>
           </div>
@@ -1366,11 +1371,131 @@ function primeFinalVideo() {
   }
 }
 
+/* ── Final screen: shareable-card carousel ───────────────────────────
+   Add more cards later by just appending their path here. */
+const SHARE_CARDS = [
+  'Screens motion/Summary.png',
+  'Screens motion/Summary2.png',
+  'Screens motion/Summary3.png',
+];
+
+const CARD_WIDTH_PCT = 0.82; // active card's width relative to the viewport
+const CARD_GAP = 12;
+
+let shareActiveIndex = 0;
+let cardDragging = false;
+let cardDragStartX = 0;
+let cardDragDeltaX = 0;
+let cardBaseOffset = 0;
+
+const cardViewport = document.getElementById('final-card-viewport');
+const cardTrack     = document.getElementById('final-card-track');
+const cardDotsWrap  = document.getElementById('final-card-dots');
+
+const cardSlideEls = SHARE_CARDS.map(src => {
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = '';
+  img.draggable = false;
+  img.style.cssText = 'display:block;height:auto;flex-shrink:0;user-select:none;pointer-events:none;';
+  cardTrack.appendChild(img);
+  return img;
+});
+
+const cardDotEls = SHARE_CARDS.map(() => {
+  const dot = document.createElement('div');
+  dot.style.cssText = 'width:6px;height:6px;border-radius:50%;background:#D8D8D8;transition:background 0.25s ease;';
+  cardDotsWrap.appendChild(dot);
+  return dot;
+});
+
+function computeCardOffset() {
+  const vw = cardViewport.offsetWidth; // now spans the full phone-screen width
+  // card size is still based on the screen's normal 20px-padded content
+  // column (vw - 40), so widening the crop area doesn't change card size
+  const contentWidth = vw - 40;
+  const cw = Math.round(contentWidth * CARD_WIDTH_PCT);
+  return { vw, cw, offset: -(shareActiveIndex * (cw + CARD_GAP)) + (vw - cw) / 2 };
+}
+
+function layoutShareCards(instant) {
+  const { vw, cw, offset } = computeCardOffset();
+  cardSlideEls.forEach((img, i) => {
+    img.style.width = cw + 'px';
+    img.style.marginRight = i < cardSlideEls.length - 1 ? CARD_GAP + 'px' : '0';
+  });
+  cardTrack.style.transition = instant ? 'none' : 'transform 350ms cubic-bezier(0.34,1.56,0.64,1)';
+  cardTrack.style.transform = `translateX(${offset}px)`;
+}
+
+function updateShareDots() {
+  cardDotEls.forEach((dot, i) => {
+    dot.style.background = i === shareActiveIndex ? '#4F080C' : '#D8D8D8';
+  });
+}
+
+function goToShareCard(index, instant) {
+  shareActiveIndex = Math.max(0, Math.min(SHARE_CARDS.length - 1, index));
+  layoutShareCards(instant);
+  updateShareDots();
+}
+
+function onCardDragStart(e) {
+  cardDragging = true;
+  cardDragStartX = (e.touches ? e.touches[0] : e).clientX;
+  cardDragDeltaX = 0;
+  cardBaseOffset = computeCardOffset().offset;
+  cardTrack.style.transition = 'none';
+}
+
+function onCardDragMove(e) {
+  if (!cardDragging) return;
+  const x = (e.touches ? e.touches[0] : e).clientX;
+  cardDragDeltaX = x - cardDragStartX;
+  cardTrack.style.transform = `translateX(${cardBaseOffset + cardDragDeltaX}px)`;
+}
+
+function onCardDragEnd() {
+  if (!cardDragging) return;
+  cardDragging = false;
+  const THRESHOLD = 40;
+  if (cardDragDeltaX < -THRESHOLD) goToShareCard(shareActiveIndex + 1);
+  else if (cardDragDeltaX > THRESHOLD) goToShareCard(shareActiveIndex - 1);
+  else goToShareCard(shareActiveIndex);
+}
+
+if (cardViewport) {
+  cardViewport.addEventListener('touchstart', onCardDragStart, { passive: true });
+  cardViewport.addEventListener('touchmove', onCardDragMove, { passive: true });
+  cardViewport.addEventListener('touchend', onCardDragEnd);
+  cardViewport.addEventListener('mousedown', onCardDragStart);
+  document.addEventListener('mousemove', e => { if (cardDragging) onCardDragMove(e); });
+  document.addEventListener('mouseup', onCardDragEnd);
+}
+
+document.getElementById('final-share-btn')?.addEventListener('click', async () => {
+  const src = SHARE_CARDS[shareActiveIndex];
+  if (navigator.share) {
+    try {
+      const resp = await fetch(src);
+      const blob = await resp.blob();
+      const file = new File([blob], src.split('/').pop(), { type: blob.type });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'My Roast Recap' });
+      } else {
+        await navigator.share({ title: 'My Roast Recap', url: location.href });
+      }
+    } catch (err) { /* user cancelled or share failed */ }
+  } else {
+    window.open(src, '_blank');
+  }
+});
+
 function showFinalScreen() {
   const screen    = document.getElementById('final-screen');
   const video     = document.getElementById('final-video');
   const lead      = document.getElementById('final-lead');
-  const card      = document.getElementById('final-card');
+  const card      = document.getElementById('final-card-area');
   const title     = document.getElementById('final-title');
   const shareBtn  = document.getElementById('final-share-btn');
   const keepBtn   = document.getElementById('final-keep-btn');
@@ -1395,6 +1520,8 @@ function showFinalScreen() {
   screen.style.display = 'block';
   video.currentTime = 0;
   video.play().catch(() => {});
+
+  goToShareCard(0, true);
 
   const popIn = (el, delay) => {
     finalScreenTimers.push(setTimeout(() => {
